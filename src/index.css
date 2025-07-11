@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+:root {
+  --primer-color: #0d3356;
+  --text-color-1: #667085;
+  --text-color-700: #344054;
+  --text-color-400: #98a2b3;
+  --text-color-white: #fff;
+  --border-color: #ededed;
+}

@@ -1,0 +1,28 @@
+.nav {
+  border-bottom: 1px solid var(--border-color);
+  background-color: #fff !important;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav__logo {
+  color: var(--primer-color);
+  font-size: 2rem;
+  font-weight: 800;
+  font-style: italic;
+  padding-right: 60px;
+}
+
+.nav__link {
+  color: var(--primer-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cart__logo a {
+  font-size: 22px;
+}

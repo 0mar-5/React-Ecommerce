@@ -1,0 +1,21 @@
+/* .product__img {
+  width: 300px;
+}
+
+img {
+  width: 100%;
+} */
+.card__btn {
+  background-color: var(--primer-color);
+  color: var(--text-color-white);
+  border-radius: 20px;
+}
+
+.btn__round {
+  width: 30px;
+  border-radius: 50%;
+}
+.btn:hover:hover {
+  background-color: #06287e !important;
+  color: var(--text-color-white) !important;
+}
