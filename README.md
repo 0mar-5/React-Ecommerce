@@ -1,12 +1,41 @@
-# React + Vite
+# 🛍️ React Ecommerce App (Vite + React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple yet functional **Ecommerce web application** built using **React** and **Vite**. It showcases key features like cart functionality, product details, and authentication, styled with Bootstrap and custom CSS.
 
-Currently, two official plugins are available:
+> 🚀 This project uses Vite for fast development and optimized production builds.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧩 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🏠 Home page displaying a list of products
+- 🛒 Add to cart / remove from cart functionality
+- 🔢 Product quantity adjustment (with stock limit)
+- 📦 Product details with more info and rating
+- 🔐 Private routes (only accessible when logged in)
+- 👤 User login/logout with localStorage persistence
+- 💾 Cart items saved per user
+- 🚫 Redirect and toast messages if not logged in
+- 📱 Responsive layout using Bootstrap
+- ☀️ Clean UI and user-friendly interactions
+
+---
+
+## ⚙️ Technologies Used
+
+- ⚡ [Vite](https://vitejs.dev/)
+- ⚛️ React
+- 🎨 Bootstrap 5
+- 🔁 React Router DOM
+- 🍞 [react-hot-toast](https://react-hot-toast.com/) for notifications
+- 🧠 LocalStorage for user data and cart persistence
+
+---
+
+## 🚀 Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
