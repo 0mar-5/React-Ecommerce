@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
   const {
@@ -30,7 +31,7 @@ function Register() {
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Registered successfully!");
+    toast.success("Registered successfully!");
     navigate("/login");
   }
 
@@ -43,6 +44,7 @@ function Register() {
       onSubmit={handleSubmit(onSubmitForm, onErrors)}
       className="form-group form-container"
     >
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="form-group pb-3">
         <label htmlFor="userName">User Name</label>
         <input

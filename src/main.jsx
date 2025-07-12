@@ -7,13 +7,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import App from "./App.jsx";
 import { CartContextProvider } from "./context/CartContext.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/index.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <CartContextProvider>
-        <App />
-      </CartContextProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>
 );

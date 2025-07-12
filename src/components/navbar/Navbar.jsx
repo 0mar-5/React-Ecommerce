@@ -3,9 +3,13 @@ import { IoBag } from "react-icons/io5";
 import { useCart } from "../../context/useCart";
 import { Link, NavLink } from "react-router-dom";
 import Logout from "../Logout/Logout";
+import { BsHeartFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { wishlistLength } from "../../store/wishlistSlice";
 
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const { totalItems } = useCart();
+  const wishlistCount = useSelector(wishlistLength);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-white p-3 nav">
@@ -51,12 +55,35 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               )}
             </li>
           </ul>
-          <span className="navbar-text nav__link cart__logo">
-            <NavLink to="/cart">
-              <IoBag />
+          <span className="navbar-text me-3">
+            <NavLink
+              to="/wishlist"
+              className="text-decoration-none text-dark position-relative"
+            >
+              <BsHeartFill className="fs-5" />
+              {wishlistCount > 0 && (
+                <span
+                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  style={{ fontSize: "0.6rem" }}
+                >
+                  {wishlistCount}
+                </span>
+              )}
             </NavLink>
+          </span>
 
-            <span>{totalItems}</span>
+          <span className="navbar-text position-relative">
+            <NavLink to="/cart" className="text-decoration-none text-dark">
+              <IoBag className="fs-4" />
+              {totalItems > 0 && (
+                <span
+                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  style={{ fontSize: "0.6rem" }}
+                >
+                  {totalItems}
+                </span>
+              )}
+            </NavLink>
           </span>
         </div>
       </div>

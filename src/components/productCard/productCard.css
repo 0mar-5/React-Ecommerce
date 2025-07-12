@@ -19,3 +19,14 @@ img {
   background-color: #06287e !important;
   color: var(--text-color-white) !important;
 }
+.card {
+  position: relative;
+}
+.wishlist-btn {
+  position: absolute;
+  z-index: 100;
+  left: 25%;
+  top: 40%;
+  background-color: transparent;
+  border: none;
+}

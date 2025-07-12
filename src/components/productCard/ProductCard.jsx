@@ -3,17 +3,40 @@ import "./ProductCard.css";
 import StarRating from "../starRatting/StarRating";
 import { Link } from "react-router-dom";
 import useProductQuantity from "../../hooks/useProductQuantity";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleWishlistItem } from "../../store/wishlistSlice";
+import { FaHeart } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
 
 const ProductCard = ({ product }) => {
   const { quantity, increment, decrement, isInCart, toggleCart } =
     useProductQuantity(product);
+  const dispatch = useDispatch();
+  const { wishlistItems } = useSelector((state) => state.wishlist);
+  const isInWishlist = wishlistItems.some((item) => item.id === product.id);
 
+  const handleToggle = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(toggleWishlistItem(product));
+  };
   return (
     <Link
       to={`/product/${product.id}`}
       className="text-decoration-none text-dark"
     >
-      <div className="card h-100 d-flex flex-column">
+      <div className="card h-100 d-flex flex-column position-relative">
+        <button
+          onClick={handleToggle}
+          aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+          className=" position-absolute top-0 end-0 m-2  border-0 bg-transparent rounded-circle"
+        >
+          {isInWishlist ? (
+            <FaHeart className="text-danger fs-2" />
+          ) : (
+            <CiHeart className="text-secondary fs-2" />
+          )}
+        </button>
         <img
           src={product.thumbnail}
           className="card-img-top"

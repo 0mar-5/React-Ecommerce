@@ -1,14 +1,18 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, lazy } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import Products from "./components/products/Products";
 import { Route, Routes } from "react-router-dom";
-import Cart from "./pages/Cart/Cart";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
+const Products = lazy(() => import("./components/products/Products"));
+const Cart = lazy(() => import("./pages/Cart/Cart"));
+const Login = lazy(() => import("./pages/Login/Login"));
+const Register = lazy(() => import("./pages/Register/Register"));
+const ProductDetails = lazy(() =>
+  import("./pages/ProductDetails/ProductDetails")
+);
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const Wishlist = lazy(() => import("./pages/wishlist/Wishlist"));
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -20,11 +24,10 @@ function App() {
     <>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <div className="container">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="text-center py-5">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Products />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-
             <Route
               path="/cart"
               element={
@@ -37,6 +40,7 @@ function App() {
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
             />
+            <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
