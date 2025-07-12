@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import "./ProductCard.css";
 import StarRating from "../starRatting/StarRating";
 import { Link } from "react-router-dom";

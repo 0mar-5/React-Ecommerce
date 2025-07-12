@@ -25,7 +25,7 @@ function ProductDetails() {
 
         <div className="text-center mb-4">
           <img
-            src={product.images?.[0]}
+            src={product?.thumbnail}
             alt={product.title}
             className="img-fluid rounded"
             style={{ maxWidth: "300px" }}
